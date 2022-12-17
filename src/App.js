@@ -1,10 +1,10 @@
 import React from 'react';
-import CapsLock from './CapsLock';
+import Counter from './Counter';
 
 function App() {
   return (
     <div>
-      <CapsLock>Testing my Page</CapsLock>
+      <Counter />
     </div>
   );
 }
