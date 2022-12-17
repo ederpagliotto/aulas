@@ -13,9 +13,13 @@ const Counter = () => {
 
   return (
     <div>
-      <h1>{counter}</h1>
-      <button onClick={handleClick}>Add</button>
-      <button onClick={handleClick}>Remove</button>
+      <h1 style={{ margin: '1rem', color: 'green' }}>{counter}</h1>
+      <button onClick={handleClick} style={{ margin: '1rem' }}>
+        Add
+      </button>
+      <button onClick={handleClick} style={{ margin: '1rem' }}>
+        Remove
+      </button>
     </div>
   );
 };
