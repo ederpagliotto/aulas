@@ -4,7 +4,7 @@ import CapsLock from './CapsLock';
 function App() {
   return (
     <div>
-      <CapsLock text="Convert this text to CapsLock!" />
+      <CapsLock>Testing my Page</CapsLock>
     </div>
   );
 }
