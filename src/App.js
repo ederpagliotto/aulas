@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
-  const [comments, setComments] = React.useState('');
-  const [input, setInput] = React.useState([]);
+  const [comments, setComments] = useState([]);
+  const [input, setInput] = useState('');
+
+  function handleClick() {
+    setComments([...comments, input]);
+  }
 
   return (
     <div>
-      <input type="text" value={comments} />
-      <button onClick={handleClick}>Enviar</button>
+      <ul>
+        {comments.map((comment) => (
+          <li key={comment}>{comment}</li>
+        ))}
+      </ul>
+      <input
+        type="text"
+        value={input}
+        onChange={({ target }) => setInput(target.value)}
+      />
+      <br />
+      <button onClick={handleClick}>Submit</button>
     </div>
   );
 }
