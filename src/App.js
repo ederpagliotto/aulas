@@ -1,12 +1,12 @@
 import React from 'react';
-import UserContext from './UserContext';
 import Produto from './Produto';
+import { GlobalStorage } from './GlobalContext';
 
 function App() {
   return (
-    <UserContext.Provider value={{ name: 'Joaozinho' }}>
+    <GlobalStorage>
       <Produto />
-    </UserContext.Provider>
+    </GlobalStorage>
   );
 }
 
