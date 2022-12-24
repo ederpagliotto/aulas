@@ -1,11 +1,18 @@
 import React from 'react';
 
 function App() {
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
+  const [form, setForm] = React.useState({
+    name: '',
+    email: '',
+  });
 
   function handleSubmit(event) {
     event.preventDefault();
+  }
+
+  function handleChange({ target }) {
+    const { id, value } = target;
+    setForm({ ...form, [id]: value });
   }
 
   return (
@@ -16,8 +23,8 @@ function App() {
         id="name"
         type="text"
         name="name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
+        value={form.name}
+        onChange={handleChange}
       />
 
       <label htmlFor="email">Email</label>
@@ -25,8 +32,8 @@ function App() {
         id="email"
         type="email"
         name="email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
+        value={form.email}
+        onChange={handleChange}
       />
       <button>Submit</button>
     </form>
