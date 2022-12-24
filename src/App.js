@@ -1,14 +1,53 @@
 import React from 'react';
 
+const formFields = [
+  {
+    id: 'name',
+    label: 'Name',
+    type: 'text',
+  },
+  {
+    id: 'email',
+    label: 'Email',
+    type: 'email',
+  },
+  {
+    id: 'password',
+    label: 'Password',
+    type: 'password',
+  },
+  {
+    id: 'zip',
+    label: 'Zip Code',
+    type: 'text',
+  },
+  {
+    id: 'street',
+    label: 'Street',
+    type: 'text',
+  },
+  {
+    id: 'town',
+    label: 'Town',
+    type: 'text',
+  },
+  {
+    id: 'county',
+    label: 'County',
+    type: 'text',
+  },
+];
+
 function App() {
   const [form, setForm] = React.useState({
     name: '',
     email: '',
+    password: '',
+    zip: '',
+    street: '',
+    town: '',
+    county: '',
   });
-
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
 
   function handleChange({ target }) {
     const { id, value } = target;
@@ -16,26 +55,13 @@ function App() {
   }
 
   return (
-    // The event doesn't need to be on button
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        type="text"
-        name="name"
-        value={form.name}
-        onChange={handleChange}
-      />
-
-      <label htmlFor="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        value={form.email}
-        onChange={handleChange}
-      />
-      <button>Submit</button>
+    <form>
+      {formFields.map(({ id, label, type }) => (
+        <div>
+          <label htmlFor={id}>{label}</label>
+          <input type={type} id={id} value={form[id]} onChange={handleChange} />
+        </div>
+      ))}
     </form>
   );
 }
