@@ -1,94 +1,15 @@
 import React from 'react';
-
-const formFields = [
-  {
-    id: 'nome',
-    label: 'Nome',
-    type: 'text',
-  },
-  {
-    id: 'email',
-    label: 'Email',
-    type: 'email',
-  },
-  {
-    id: 'senha',
-    label: 'Senha',
-    type: 'password',
-  },
-  {
-    id: 'cep',
-    label: 'Cep',
-    type: 'text',
-  },
-  {
-    id: 'rua',
-    label: 'Rua',
-    type: 'text',
-  },
-  {
-    id: 'numero',
-    label: 'Numero',
-    type: 'text',
-  },
-  {
-    id: 'bairro',
-    label: 'Bairro',
-    type: 'text',
-  },
-  {
-    id: 'cidade',
-    label: 'Cidade',
-    type: 'text',
-  },
-  {
-    id: 'estado',
-    label: 'Estado',
-    type: 'text',
-  },
-];
+import Input from './Input';
 
 function App() {
-  const [form, setForm] = React.useState(
-    formFields.reduce((acc, field) => {
-      return {
-        ...acc,
-        [field.id]: '',
-      };
-    }, {}),
-  );
-
-  const [response, setResponse] = React.useState(null);
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    fetch('https://ranekapi.origamid.dev/json/api/usuario', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(form),
-    }).then((response) => {
-      setResponse(response);
-    });
-  }
-
-  function handleChange({ target }) {
-    const { id, value } = target;
-    setForm({ ...form, [id]: value });
-  }
+  const [nome, setNome] = React.useState('');
+  const [email, setEmail] = React.useState('');
 
   return (
-    <form onSubmit={handleSubmit}>
-      {formFields.map(({ id, label, type }) => (
-        <div key={id}>
-          <label htmlFor={id}>{label}</label>
-          <input type={type} id={id} value={form[id]} onChange={handleChange} />
-        </div>
-      ))}
-      <button>Submit</button>
-      {response && response.ok && <p>Success</p>}
-    </form>
+    <div>
+      <Input label={'Nome'} value={nome} setValue={setNome} />
+      <Input label={'Email'} value={email} setValue={setEmail} />
+    </div>
   );
 }
 
