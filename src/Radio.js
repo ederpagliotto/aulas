@@ -5,7 +5,7 @@ const Radio = ({ pergunta, options, id, resposta }) => {
     <fieldset>
       <legend>{pergunta}</legend>
       {options.map((option) => (
-        <label>
+        <label key={option}>
           <input type="radio" value={option} />
           {option}
         </label>
