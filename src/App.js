@@ -37,10 +37,26 @@ const perguntas = [
 ];
 
 function App() {
+  const [respostas, setRespostas] = React.useState({
+    p1: '',
+    p2: '',
+    p3: '',
+    p4: '',
+  });
+
+  function handleChange({ target }) {
+    setRespostas({ ...respostas, [target.id]: target.value });
+  }
+
   return (
     <form>
       {perguntas.map((pergunta) => (
-        <Radio {...pergunta} />
+        <Radio
+          key={pergunta.id}
+          {...pergunta}
+          value={respostas[pergunta.id]}
+          onChange={handleChange}
+        />
       ))}
       <button>Next</button>
     </form>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Radio = ({ pergunta, options, id, resposta }) => {
+const Radio = ({ pergunta, options, onChange, value, id }) => {
   return (
     <fieldset
       style={{
@@ -15,7 +15,13 @@ const Radio = ({ pergunta, options, id, resposta }) => {
           key={option}
           style={{ marginBottom: '1rem', fontFamily: 'monospace' }}
         >
-          <input type="radio" value={option} />
+          <input
+            type="radio"
+            id={id}
+            onChange={onChange}
+            checked={value === option}
+            value={option}
+          />
           {option}
         </label>
       ))}
