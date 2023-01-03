@@ -44,21 +44,28 @@ function App() {
     p4: '',
   });
 
+  const [slide, setSlide] = React.useState(0);
+
   function handleChange({ target }) {
     setRespostas({ ...respostas, [target.id]: target.value });
   }
 
+  function handleClick() {
+    setSlide(slide + 1);
+  }
+
   return (
-    <form>
-      {perguntas.map((pergunta) => (
+    <form onSubmit={(event) => event.preventDefault()}>
+      {perguntas.map((pergunta, index) => (
         <Radio
+          active={slide === index}
           key={pergunta.id}
           {...pergunta}
           value={respostas[pergunta.id]}
           onChange={handleChange}
         />
       ))}
-      <button>Next</button>
+      <button onclick={handleClick}>Next</button>
     </form>
   );
 }
