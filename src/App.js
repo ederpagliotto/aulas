@@ -1,5 +1,6 @@
 import React from 'react';
 import Radio from './Radio';
+import styles from './components/Button.module.css';
 
 const perguntas = [
   {
@@ -81,7 +82,9 @@ function App() {
       {resultado ? (
         <p>{resultado}</p>
       ) : (
-        <button onClick={handleClick}>Next</button>
+        <button className={styles.button} onClick={handleClick}>
+          Next
+        </button>
       )}
     </form>
   );
