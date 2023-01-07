@@ -1,21 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Titulo = styled.h1`
-  font-size: 2rem;
-  color: tomato;
-`;
-
-const Paragrafo = styled.p`
-  font-size: 1.5rem;
-  color: green;
-`;
+import Slide from './Slide';
 
 const App = () => {
+  const slides = [
+    {
+      id: 'slide1',
+      text: 'Slide 1',
+    },
+    {
+      id: 'slide2',
+      text: 'Slide 2',
+    },
+    {
+      id: 'slide3',
+      text: 'Slide 3',
+    },
+  ];
+
   return (
     <div>
-      <Titulo>Meu Titulo</Titulo>
-      <Paragrafo>Meu paragrafo</Paragrafo>
+      <Slide slides={slides} />
     </div>
   );
 };
