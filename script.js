@@ -3,7 +3,7 @@ const promessa = new Promise(function (resolve, reject) {
   if (condicao) {
     resolve('Resolvido');
   } else {
-    reject('Erro na promise');
+    reject(Error('Erro na promise'));
   }
 });
 
