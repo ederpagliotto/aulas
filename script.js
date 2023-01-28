@@ -1,14 +1,14 @@
 const promessa = new Promise((resolve, reject) => {
   let condicao = true;
   if (condicao) {
-    setTimeout(() => {
-      resolve('Acertou miseravi');
-    }, 1000);
+    resolve('Acertou miseravi');
   } else {
     reject(Error('Errou miseravi'));
   }
 });
 
-promessa.then((resolvido) => {
-  console.log(resolvido);
-});
+const retorno = promessa
+  .then((resolvido) => console.log(resolvido))
+  .then((retorno) => console.log(retorno + 'primeira promise'))
+  .then((retorno) => console.log(retorno + 'segunda promise'))
+  .then((finalRetorno) => console.log(finalRetorno + 'Final'));
