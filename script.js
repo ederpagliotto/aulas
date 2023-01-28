@@ -1,10 +1,12 @@
-const promessa = new Promise(function (resolve, reject) {
+const promessa = new Promise((resolve, reject) => {
   let condicao = true;
   if (condicao) {
-    resolve('Resolvido');
+    resolve('Acertou miseravi');
   } else {
-    reject(Error('Erro na promise'));
+    reject(Error('Errou miseravi'));
   }
 });
 
-console.log(promessa);
+promessa.then((resolvido) => {
+  console.log(resolvido);
+});
