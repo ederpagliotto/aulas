@@ -1,7 +1,9 @@
 const promessa = new Promise((resolve, reject) => {
   let condicao = true;
   if (condicao) {
-    resolve('Acertou miseravi');
+    setTimeout(() => {
+      resolve('Acertou miseravi');
+    }, 1000);
   } else {
     reject(Error('Errou miseravi'));
   }
