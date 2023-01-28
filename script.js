@@ -1,14 +1,24 @@
 const promessa = new Promise((resolve, reject) => {
   let condicao = true;
   if (condicao) {
-    resolve('Acertou miseravi');
+    resolve({
+      nome: 'Eder',
+      idade: 31,
+    });
   } else {
     reject(Error('Errou miseravi'));
   }
 });
 
 const retorno = promessa
-  .then((resolvido) => console.log(resolvido))
-  .then((retorno) => console.log(retorno + 'primeira promise'))
-  .then((retorno) => console.log(retorno + 'segunda promise'))
-  .then((finalRetorno) => console.log(finalRetorno + 'Final'));
+  .then((resolucao) => {
+    resolucao.profissao = 'Software Developer';
+    return resolucao;
+  })
+  .then((resolucao) => {
+    console.log(resolucao);
+    return 'teste';
+  })
+  .catch((rejeitada) => {
+    console.log(rejeitada);
+  });
