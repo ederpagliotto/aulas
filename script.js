@@ -39,4 +39,7 @@ const dados = new Promise((resolve) => {
 });
 
 const acabouTudo = Promise.all([login, dados]);
-console.log(acabouTudo);
+
+acabouTudo.then((resolucao) => {
+  console.log(resolucao);
+});
