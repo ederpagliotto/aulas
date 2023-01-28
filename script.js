@@ -43,3 +43,9 @@ const acabouTudo = Promise.all([login, dados]);
 acabouTudo.then((resolucao) => {
   console.log(resolucao);
 });
+
+const acabouPrimeiro = Promise.race([login, dados]);
+
+acabouPrimeiro.then((resolucao) => {
+  console.log(resolucao);
+});
