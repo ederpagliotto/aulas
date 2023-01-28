@@ -1,5 +1,5 @@
 const promessa = new Promise((resolve, reject) => {
-  let condicao = true;
+  let condicao = false;
   if (condicao) {
     resolve({
       nome: 'Eder',
@@ -15,10 +15,12 @@ const retorno = promessa
     resolucao.profissao = 'Software Developer';
     return resolucao;
   })
-  .then((resolucao) => {
-    console.log(resolucao);
-    return 'teste';
-  })
-  .catch((rejeitada) => {
-    console.log(rejeitada);
-  });
+  .then(
+    (resolucao) => {
+      console.log(resolucao);
+      return 'teste';
+    },
+    (rejeitada) => {
+      console.log(rejeitada);
+    },
+  );
