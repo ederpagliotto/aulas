@@ -1,4 +1,4 @@
-const promessa = new Promise((resolve, reject) => {
+/* const promessa = new Promise((resolve, reject) => {
   let condicao = true;
   if (condicao) {
     resolve({
@@ -24,4 +24,19 @@ const retorno = promessa
   })
   .finally(() => {
     console.log('Acabou');
-  });
+  }); */
+
+const login = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve('Usuario logado!');
+  }, 1000);
+});
+
+const dados = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve('Dados Carregados!');
+  }, 1500);
+});
+
+const acabouTudo = Promise.all([login, dados]);
+console.log(acabouTudo);
