@@ -1,6 +1,6 @@
-const sobre = fetch('./image.jpg');
+const image = fetch('./image.jpg');
 
-sobre
+image
   .then((resolucao) => {
     return resolucao.blob();
   })
