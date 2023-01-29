@@ -1,11 +1,15 @@
-const image = fetch('./image.jpg');
+const cep = fetch('https://viacep.com.br/ws/01001000/json/');
 
-image
-  .then((resolucao) => {
-    return resolucao.blob();
+cep
+  .then((r1) => {
+    const r2 = r1.clone();
+    r1.text().then((texto) => {
+      console.log(texto);
+    });
+    r2.json().then((json) => {
+      console.log(json);
+    });
   })
-  .then((body) => {
-    const blobURL = URL.createObjectURL(body);
-    const imageDOM = document.querySelector('img');
-    imageDOM.src = blobURL;
+  .then((text) => {
+    console.log(text);
   });
