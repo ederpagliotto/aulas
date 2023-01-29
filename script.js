@@ -1,10 +1,10 @@
-const doc = fetch('./doc.txt');
+const cep = fetch('https://viacep.com.br/ws/01001000/json/');
 
-doc
+cep
   .then((resolucao) => {
-    return resolucao.text();
+    return resolucao.json();
   })
   .then((body) => {
     const conteudo = document.querySelector('.conteudo');
-    conteudo.innerText = body;
+    conteudo.innerText = body.bairro;
   });
