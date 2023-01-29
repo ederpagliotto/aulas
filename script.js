@@ -2,8 +2,10 @@ const sobre = fetch('./image.jpg');
 
 sobre
   .then((resolucao) => {
-    return resolucao.text();
+    return resolucao.blob();
   })
   .then((body) => {
-    console.log(body);
+    const blobURL = URL.createObjectURL(body);
+    const imageDOM = document.querySelector('img');
+    imageDOM.src = blobURL;
   });
